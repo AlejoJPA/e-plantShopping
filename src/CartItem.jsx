@@ -1,10 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from './CartSlice';
+import { removeItem, updateQuantity, selectTotalQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items); // 1) useSelector extracts data from Redux store! data stored as 'cart'.
+  const totalQuantity = useSelector(selectTotalQuantity); // Get total number of plants
   const dispatch = useDispatch(); // useDispatch handles in the specified reducer from CartSlice!
 
   // 'calculateTotalAmount' returns the total amount for all products in the 'cart' (initial value '0' in reduce())
@@ -38,6 +39,7 @@ const CartItem = ({ onContinueShopping }) => {
   return (
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h3 style={{ color: 'black' }}>Total Plants in Cart: {totalQuantity}</h3> {/* Display total number of plants */}
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
