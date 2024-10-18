@@ -13,12 +13,7 @@ const CartItem = ({ onContinueShopping }) => {
     return cart.reduce((total, item) => total + parseCost(item.cost) * item.quantity, 0); 
   };
 
-  // 'handleContinueShopping' // Hide the cart when "Continue Shopping" is clicked!
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
-    setShowCart(false);
-  };
-
+  
   const handleIncrement = (item) => {
     dispatch(updateQuantity({ ...item, quantity: item.quantity + 1 }));
   };
@@ -62,7 +57,7 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
+        <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button> {/*Continuous shoppimg in handled by ProductList*/}
         <br />
         <button className="get-started-button1">Checkout</button>
       </div>
