@@ -2,15 +2,15 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
-import './ProductList';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items); // 1) useSelector extracts data from Redux store! data stored as 'cart'.
   const dispatch = useDispatch(); // useDispatch handles in the specified reducer from CartSlice!
 
   // 'calculateTotalAmount' returns the total amount for all products in the 'cart' (initial value '0' in reduce())
+  const parseCost = (cost) => parseFloat(cost.replace('$','')); //Converting cost str into a number
   const calculateTotalAmount = () => {
-    return cart.reduce((total, item) => total + item.cost * item.quantity, 0); 
+    return cart.reduce((total, item) => total + parseCost(item.cost) * item.quantity, 0); 
   };
 
   // 'handleContinueShopping' calls onContinueShopping() when onClick of 'Continue Shopping' button!
@@ -34,7 +34,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-    return item.cost * item.quantity;
+    return parseCost(item.cost) * item.quantity;
   };
 
   const handleCheckoutShopping = (e) => {alert('Functionality to be added for future reference');
