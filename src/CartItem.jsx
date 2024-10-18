@@ -4,32 +4,39 @@ import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
-  const cart = useSelector(state => state.cart.items);
-  const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart.items); // 1) useSelector extracts data from Redux store! data stored as 'cart'.
+  const dispatch = useDispatch(); // useDispatch handles in the specified reducer from CartSlice!
 
-  // Calculate total amount for all products in the cart
+  // 'calculateTotalAmount' returns the total amount for all products in the 'cart' (initial value '0' in reduce())
   const calculateTotalAmount = () => {
- 
+    return cart.reduce((total, item) => total + item.cost * item.quantity, 0); 
   };
 
+  // 'handleContinueShopping' calls onContinueShopping() when onClick of 'Continue Shopping' button!
   const handleContinueShopping = (e) => {
-   
+    if (onContinueShopping) {
+      onContinueShopping();
+    }   
   };
-
-
 
   const handleIncrement = (item) => {
+    dispatch(updateQuantity({ ...item, quantity: item.quantity + 1 }));
   };
 
   const handleDecrement = (item) => {
-   
+    dispatch(updateQuantity({ ...item, quantity: item.quantity - 1 }));   
   };
 
   const handleRemove = (item) => {
+    dispatch(removeItem(item));
   };
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
+    return item.cost * item.quantity;
+  };
+
+  const handleCheckoutShopping = (e) => {alert('Functionality to be added for future reference');
   };
 
   return (
