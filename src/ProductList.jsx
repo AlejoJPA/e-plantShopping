@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import { useDispatch } from 'react-redux'; // Added useDispatch import
 import {addItem} from './CartSlice'; //Reducer from CartSlice!!!
 
 
