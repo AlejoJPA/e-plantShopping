@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
+import './ProductList';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items); // 1) useSelector extracts data from Redux store! data stored as 'cart'.
