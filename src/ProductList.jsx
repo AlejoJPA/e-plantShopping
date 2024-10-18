@@ -279,7 +279,7 @@ function ProductList() {
             </div>
         </div>
         {!showCart? (
-        <div className="product-grid">
+        <div className="product-grid"> {/*Nested Loop 'map()': outer 'cattegory', inner 'plantIndex (image, name, decription, cost)'*/}
             {plantsArray.map((category, index) => (
             <div key={index}>
                 <h1><div>{category.category}</div></h1>
