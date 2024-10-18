@@ -304,8 +304,9 @@ function ProductList() {
 
         </div>
         ) :  (
-            <CartItem onContinueShopping={handleContinueShopping}/>
-            )}
+            
+            <CartItem onContinueShopping={handleContinueShopping}/> 
+            )} {/* onContinueShopping is passed as prop to CartItem*/}
     </div>
     );
 }
