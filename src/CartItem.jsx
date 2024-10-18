@@ -13,11 +13,10 @@ const CartItem = ({ onContinueShopping }) => {
     return cart.reduce((total, item) => total + parseCost(item.cost) * item.quantity, 0); 
   };
 
-  // 'handleContinueShopping' calls onContinueShopping() from Parent Comp' when onClick of 'Continue Shopping' button!
-  const handleContinueShopping = () => {
-    if (onContinueShopping) {
-      onContinueShopping();
-    }   
+  // 'handleContinueShopping' // Hide the cart when "Continue Shopping" is clicked!
+  const handleContinueShopping = (e) => {
+    e.preventDefault();
+    setShowCart(false);
   };
 
   const handleIncrement = (item) => {
