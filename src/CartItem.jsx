@@ -31,7 +31,8 @@ const CartItem = ({ onContinueShopping }) => {
     return parseCost(item.cost) * item.quantity;
   };
 
-  const handleCheckoutShopping = (e) => {alert('Functionality to be added for future reference');
+  const handleCheckoutShopping = (e) => {
+    alert('Functionality to be added for future reference');
   };
 
   return (
@@ -57,14 +58,12 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button> {/*Continuous shoppimg in handled by ProductList*/}
+        <button className="get-started-button" onClick={onContinueShopping}>Continue Shopping</button> {/* Using the passed prop */}
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={handleCheckoutShopping}>Checkout</button>
       </div>
     </div>
   );
 };
 
 export default CartItem;
-
-
