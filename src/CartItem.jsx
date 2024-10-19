@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity, selectTotalQuantity } from './CartSlice';
+import { removeItem, updateQuantity, selectTotalQuantity, clearCart } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
@@ -72,7 +72,7 @@ const CartItem = ({ onContinueShopping }) => {
       <div style={{ marginTop: '20px' }}>
         <button className="clear-cart-button" onClick={handleClearCart}>Clear Cart</button> {/* Clear cart button */}
       </div>
-      
+
     </div>
   );
 };
