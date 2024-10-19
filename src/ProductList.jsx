@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import { useDispatch, useSelector } from 'react-redux'; // Added useDispatch import
-import {addItem, selectTotalQuantity} from './CartSlice'; //Reducer from CartSlice!!!
+import { useDispatch} from 'react-redux'; // Added useDispatch import
+import {addItem} from './CartSlice'; //Reducer from CartSlice!!!
 
 
 function ProductList() {
@@ -262,9 +262,7 @@ function ProductList() {
     }));
     };
 
-    // Fetch total quantity from the cart state
-    const totalQuantity = useSelector(selectTotalQuantity);
-    console.log("Total Quantity:", totalQuantity); // For debugging
+    
     
     return (
         <div>
@@ -291,10 +289,6 @@ function ProductList() {
                                 <circle cx="184" cy="216" r="12"></circle>
                                 <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path>
                             </svg>
-                            {/* Display total quantity in the cart */}
-                            <span style={{ fontSize: '14px', color: 'white', position: 'relative', top: '-25px', right: '-25px' }}>
-                                    {totalQuantity}
-                            </span>
                         </h1>
                     </a>
                 </div>
