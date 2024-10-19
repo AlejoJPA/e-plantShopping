@@ -25,11 +25,15 @@ const CartItem = ({ onContinueShopping }) => {
 
   const handleRemove = (item) => {
     dispatch(removeItem(item));
+  }; 
+
+  
+  const calculateTotalCost = (item) => {
+    return parseCost(item.cost) * item.quantity; // Calculate total cost based on quantity for an item
   };
 
-  // Calculate total cost based on quantity for an item
-  const calculateTotalCost = (item) => {
-    return parseCost(item.cost) * item.quantity;
+  const handleClearCart = () => {
+    dispatch(clearCart()); // Dispatch clearCart action
   };
 
   const handleCheckoutShopping = (e) => {
@@ -64,6 +68,11 @@ const CartItem = ({ onContinueShopping }) => {
         <br />
         <button className="get-started-button1" onClick={handleCheckoutShopping}>Checkout</button>
       </div>
+
+      <div style={{ marginTop: '20px' }}>
+        <button className="clear-cart-button" onClick={handleClearCart}>Clear Cart</button> {/* Clear cart button */}
+      </div>
+      
     </div>
   );
 };

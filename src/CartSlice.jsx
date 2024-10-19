@@ -28,6 +28,10 @@ export const CartSlice = createSlice({
         }
 
     },
+
+    clearCart: (state) => {
+      state.items = []; // Set the cart to an empty array
+    }
   },
 });
 
