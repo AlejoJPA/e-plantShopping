@@ -35,7 +35,7 @@ export const CartSlice = createSlice({
   },
 });
 
-export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
+export const { addItem, removeItem, updateQuantity, clearCart } = CartSlice.actions;
 
 // Selector to calculate total quantity of plants in the cart
 export const selectTotalQuantity = (state) => {
