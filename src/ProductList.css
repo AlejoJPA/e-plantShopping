@@ -163,13 +163,17 @@ body {
 .cart{
     color: white;
     display: flex;
+    align-items: center; /*New*/
+    position: relative; /*New*/
 }
 .cart_quantity_count{
-    margin-top: 16px;
-    /* background-color: red; */
-    margin-left: 27px;
-    position: absolute;
-    font-size: 29px;
+    margin-top: 16px; /*margin-top: 16px;*/
+    margin-left: 10px; /* margin-left: 27px;*/
+    position: absolute; /**/
+    font-size: 16px; /**/
+    color: #fff; /* Ensure quantity text is readable */
+    top: 0; /*New*/
+    right: 0; /*New*/
 
 }
 .plantname_heading{
